@@ -1,0 +1,114 @@
+.portfolio {
+    padding: 100px 10%;
+    background-color: var(--primary-light);
+}
+
+.highlight-text {
+    color: var(--secondary);
+}
+
+.grid-label {
+    font-size: 1.5rem;
+    color: var(--text-dim);
+    margin-bottom: 25px;
+    border-left: 4px solid var(--secondary);
+    padding-left: 15px;
+    margin-top: 40px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.portfolio-card {
+    transition: var(--transition);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--secondary);
+}
+
+.card-image-placeholder {
+    height: 180px;
+    background: linear-gradient(135deg, var(--secondary) 0%, #34495e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-shadow: 2px 2px 0rgba(255, 255, 255, 0.3);
+}
+
+.card-image-placeholder.grey {
+    background: linear-gradient(135deg, #2c3e50 0%, #000 100%);
+    color: var(--text-dim);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+    color: var(--text-white);
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    height: 60px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+}
+
+.tech-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(184, 134, 11, 0.15);
+    color: var(--secondary);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+.tech-badge.dev {
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.visit-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+.visit-btn .arrow-icon {
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.visit-btn:hover .arrow-icon {
+    transform: translateX(5px);
+}
