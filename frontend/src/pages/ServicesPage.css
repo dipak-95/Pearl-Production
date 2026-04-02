@@ -103,37 +103,43 @@
 
 /* Why Choose Pearl */
 .why-choose-pearl {
-    margin: 100px auto;
-    padding: 100px 10%;
-    background: radial-gradient(circle at 50% 0%, rgba(184, 134, 11, 0.05) 0%, transparent 70%);
+    margin: 60px auto 40px;
+    padding: 60px 10%;
+    background: radial-gradient(circle at 50% 0%, rgba(184, 134, 11, 0.03) 0%, transparent 70%);
 }
 
 .why-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
 }
 
 .why-item {
     text-align: center;
-    padding: 40px;
+    padding: 30px 20px;
 }
 
 .why-icon {
-    font-size: 3.5rem;
+    font-size: 3rem;
     display: block;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(184, 134, 11, 0.2));
 }
 
 .why-item h4 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--white);
     margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .why-item p {
     color: var(--text-dim);
     line-height: 1.6;
+    font-size: 0.95rem;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 @media (max-width: 992px) {
@@ -143,9 +149,17 @@
     
     .why-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
     }
     
+    .why-choose-pearl {
+        padding: 40px 6%;
+    }
+
+    .why-item {
+        padding: 20px;
+    }
+
     .service-reveal-card {
         padding: 40px 25px;
     }
