@@ -37,7 +37,7 @@ const ServicesPage = () => {
                 </div>
             </div>
 
-            <section className="why-choose-pearl container" data-reveal="up">
+            <section className="why-choose-pearl" data-reveal="up">
                 <div className="text-center mb-60">
                     <h2 className="heading-serif">Why Choose <span className="gold-text">Pearl Production?</span></h2>
                     <p className="section-sub">We don't just write code; we architect business solutions.</p>
