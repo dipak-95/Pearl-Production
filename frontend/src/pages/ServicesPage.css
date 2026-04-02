@@ -136,6 +136,23 @@
     font-size: 0.95rem;
 }
 
+.detail-btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    padding: 18px 36px;
+    font-size: 1rem;
+}
+
+.detail-btn-link svg {
+    transition: transform 0.3s ease;
+}
+
+.detail-btn-link:hover svg {
+    transform: translateX(5px);
+}
+
 @media (max-width: 992px) {
     .services-hub {
         flex-direction: column;

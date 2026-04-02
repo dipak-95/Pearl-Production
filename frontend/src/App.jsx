@@ -10,6 +10,8 @@ import ContactPage from './pages/ContactPage';
 import HirePage from './pages/HirePage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
+import ProjectDetails from './pages/ProjectDetails';
+import ServiceDetails from './pages/ServiceDetails';
 import useScrollReveal from './hooks/useScrollReveal';
 import './index.css';
 import './styles/scroll-reveal.css';
@@ -55,7 +57,9 @@ function AppContent() {
           <Route path="/"          element={<Home />} />
           <Route path="/about"     element={<About />} />
           <Route path="/services"  element={<ServicesPage />} />
+          <Route path="/services/:id" element={<ServiceDetails />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/portfolio/:id" element={<ProjectDetails />} />
           <Route path="/hire"      element={<HirePage />} />
           <Route path="/contact"   element={<ContactPage />} />
           <Route path="/login"     element={<LoginPage />} />

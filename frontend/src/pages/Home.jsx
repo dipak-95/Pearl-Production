@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
+import { servicesData } from '../data/servicesData';
 import './Home.css';
 
 const steps = [
@@ -12,12 +13,6 @@ const steps = [
   { num: '06', title: 'Support', icon: '🛡️', desc: "We stay with you post-launch: monitoring, updates, and dedicated support so your product keeps growing." },
 ];
 
-const capabilities = [
-  { icon: '🌐', title: 'Web Development', desc: 'MERN stack websites from informative single-pages to complex e-commerce.', href: '/services' },
-  { icon: '📱', title: 'App Development', desc: 'Cross-platform mobile apps and powerful workflow management tools.', href: '/services' },
-  { icon: '⚙️', title: 'ERP Systems', desc: 'Full-scale industrial ERPs for factories, finance firms, and enterprises.', href: '/services' },
-  { icon: '🎨', title: 'Brand & Design', desc: 'Logos, brand identity, marketing collateral, and ad creatives that stick.', href: '/services' },
-];
 
 const Home = () => {
   return (
@@ -60,8 +55,8 @@ const Home = () => {
           </p>
         </div>
         <div className="cap-grid">
-          {capabilities.map((c, i) => (
-            <Link to={c.href} className="cap-card glass-card tilt-card" key={i} data-reveal="up" data-delay={String(i + 1)}>
+          {servicesData.map((c, i) => (
+            <Link to={`/services/${c.id}`} className="cap-card glass-card tilt-card" key={c.id} data-reveal="up" data-delay={String(i + 1)}>
               <div className="cap-icon-wrap"><span className="cap-icon">{c.icon}</span></div>
               <h3>{c.title}</h3>
               <p>{c.desc}</p>
