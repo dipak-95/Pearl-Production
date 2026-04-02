@@ -88,7 +88,7 @@ const Home = () => {
             </Link>
           </div>
           <div className="teaser-stats" data-reveal="right">
-            {[['6+', 'Projects Built'],['3', 'MERN Stack Apps'],['∞', 'Lines of Code'],['100%', 'Client Focus']].map(([n, l]) => (
+            {[['16+', 'Projects Built'],['10+', 'Mobile Apps'],['6+', 'Web Apps'],['100%', 'Client Focus']].map(([n, l]) => (
               <div className="t-stat" key={l}>
                 <span className="t-num heading-serif">{n}</span>
                 <span className="t-label">{l}</span>
