@@ -7,6 +7,7 @@ const ProjectDetails = () => {
     const { id } = useParams();
     const allProjects = [...webProjects, ...mobileApps];
     const project = allProjects.find(p => p.id === id);
+    const isWeb = webProjects.some(p => p.id === id);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -19,9 +20,9 @@ const ProjectDetails = () => {
     return (
         <div className="details-page animate-fadeUp">
             <div className="details-container glass-card">
-                <Link to={project.url ? "/portfolio/web" : "/portfolio/apps"} className="back-link">
+                <Link to={isWeb ? "/portfolio/web" : "/portfolio/apps"} className="back-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    Back to Projects
+                    Back to List
                 </Link>
 
                 <div className="details-grid">
