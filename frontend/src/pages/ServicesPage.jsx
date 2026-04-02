@@ -1,141 +1,65 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { servicesData } from '../data/servicesData';
 import Contact from '../components/Contact';
 import './ServicesPage.css';
 
 const ServicesPage = () => {
-    const [activeTab, setActiveTab] = useState('web-dev');
-
-    const detailedServices = {
-        'web-dev': {
-            title: "Website Development",
-            subtitle: "Crafting High-Performance Digital Experiences",
-            description: "We don't just build websites; we build digital growth engines. Our web solutions are optimized for speed, SEO, and conversion. Every project is a blend of innovation and functionality.",
-            features: [
-                {
-                    name: "Informative Websites",
-                    detail: "Perfect for businesses looking to establish a professional online presence. We focus on clean UI, fast loading, and clear communication of your brand value."
-                },
-                {
-                    name: "Goods Management Systems",
-                    detail: "Internal web tools designed to track inventory, manage orders, and streamline your supply chain with real-time data visualization."
-                },
-                {
-                    name: "E-commerce Platforms",
-                    detail: "Scale your sales with robust online stores. Integrated with secure payment gateways (like Razorpay/Stripe), inventory sync, and customer analytics."
-                }
-            ],
-            icon: "🌐"
-        },
-        'app-dev': {
-            title: "Application Development",
-            subtitle: "Custom Solutions for Modern Workflows",
-            description: "Mobile and Desktop applications tailored to your unique business processes. We transform complex workflows into simple, intuitive apps that your team will love to use.",
-            features: [
-                {
-                    name: "Workflow Management Apps",
-                    detail: "Manage your team's tasks, progress, and communication in one centralized mobile or web application."
-                },
-                {
-                    name: "Custom Mobile Solutions",
-                    detail: "Native and Cross-platform (React Native/Flutter) apps that provide seamless user experiences on both iOS and Android."
-                },
-                {
-                    name: "In-House Profit Apps",
-                    detail: "Building tools that automate repetitive tasks, saving time and increasing overall profitability for your company."
-                }
-            ],
-            icon: "📱"
-        },
-        'erp-systems': {
-            title: "Industrial ERP Systems",
-            subtitle: "Automate and Scale Your Operations",
-            description: "Our ERP solutions are built for massive scalability. From copper factories to finance firms, we handle the heavy lifting of data management and reporting.",
-            features: [
-                {
-                    name: "Mini ERP & Workspace",
-                    detail: "Affordable solutions for growing teams to manage multi-user roles, file sharing, and project tracking."
-                },
-                {
-                    name: "Full-Scale Industrial ERP",
-                    detail: "Comprehensive systems for manufacturing units, including stock management, HR, Payroll, and automated reporting."
-                },
-                {
-                    name: "Finance ERP (Fintax)",
-                    detail: "Specialized systems for financial firms to manage client logins, employee roles, and mini ERP workflows."
-                }
-            ],
-            icon: "⚙️"
-        },
-        'graphic-design': {
-            title: "Graphic & Brand Design",
-            subtitle: "Visual Storytelling That Converts",
-            description: "Aesthetics meet strategy. We create visuals that don't just look good but drive engagement and brand loyalty. Your visual identity is our priority.",
-            features: [
-                {
-                    name: "Brand Identity",
-                    detail: "Logo design, color palettes, and typography that make your brand stand out in a crowded market."
-                },
-                {
-                    name: "Ads & Marketing Media",
-                    detail: "Eye-catching creatives for social media campaigns, video editing, and digital advertisements."
-                },
-                {
-                    name: "Marketing Collaterals",
-                    detail: "Designing brochures, visiting cards, and digital assets that reflect professional excellence."
-                }
-            ],
-            icon: "🎨"
-        }
-    };
-
-    const currentService = detailedServices[activeTab];
-
     return (
         <div className="services-page-container">
             <header className="services-header fade-in">
-                <h1 className="section-title">Our <span className="highlight-text">Service Hub</span></h1>
-                <p className="header-subtitle">Select a category to explore our specialized solutions in detail.</p>
+                <h1 className="section-title">Our <span className="highlight-text">Solution Suite</span></h1>
+                <p className="header-subtitle text-center">Engineered for growth. Specialized digital products tailored for your success.</p>
             </header>
 
-            <div className="services-hub fade-in">
-                <div className="services-nav">
-                    {Object.keys(detailedServices).map((key) => (
-                        <button 
-                            key={key} 
-                            className={`nav-item ${activeTab === key ? 'active' : ''}`}
-                            onClick={() => setActiveTab(key)}
+            <div className="services-directory fade-in">
+                <div className="service-grid-premium">
+                    {servicesData.map((s, i) => (
+                        <Link 
+                            to={`/services/${s.id}`} 
+                            key={s.id} 
+                            className="service-reveal-card glass-card tilt-card"
+                            style={{animationDelay: `${i * 0.15}s`}}
                         >
-                            <span className="nav-icon">{detailedServices[key].icon}</span>
-                            <span className="nav-label">{detailedServices[key].title}</span>
-                        </button>
+                            <div className="service-icon-lg pulse">{s.icon}</div>
+                            <div className="service-info-wrap">
+                                <span className="service-cat-label">Expertise</span>
+                                <h2>{s.title}</h2>
+                                <p>{s.desc}</p>
+                                <div className="explore-link">
+                                    Full Capabilities
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                            <div className="card-bloom"></div>
+                        </Link>
                     ))}
                 </div>
+            </div>
 
-                <div className="service-detail-container glass-card">
-                    <div className="service-detail-content fade-in" key={activeTab}>
-                        <div className="detail-header">
-                            <span className="detail-subtitle">{currentService.subtitle}</span>
-                            <h2>{currentService.title}</h2>
-                        </div>
-                        <p className="detail-description">{currentService.description}</p>
-                        
-                        <div className="detail-features-list">
-                            {currentService.features.map((feature, idx) => (
-                                <div key={idx} className="detail-feature-card">
-                                    <h4>{feature.name}</h4>
-                                    <p>{feature.detail}</p>
-                                </div>
-                            ))}
-                        </div>
-
-                        <Link to={`/services/${activeTab === 'web-dev' ? 'web-development' : activeTab === 'app-dev' ? 'app-development' : activeTab === 'erp-systems' ? 'erp-systems' : 'brand-design'}`} className="btn btn-gold detail-btn-link">
-                            View Full Service Details
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </Link>
+            <section className="why-choose-pearl container" data-reveal="up">
+                <div className="text-center mb-60">
+                    <h2 className="heading-serif">Why Choose <span className="gold-text">Pearl Production?</span></h2>
+                    <p className="section-sub">We don't just write code; we architect business solutions.</p>
+                </div>
+                <div className="why-grid">
+                    <div className="why-item">
+                        <span className="why-icon">⚡</span>
+                        <h4>Performance First</h4>
+                        <p>Websites and apps that load under 1.5s for peak retention.</p>
+                    </div>
+                    <div className="why-item">
+                        <span className="why-icon">🎯</span>
+                        <h4>Strategic Design</h4>
+                        <p>UI/UX that guides users to actions that matter for your ROI.</p>
+                    </div>
+                    <div className="why-item">
+                        <span className="why-icon">🛡️</span>
+                        <h4>Built to Scale</h4>
+                        <p>Industrial-grade code that grows as your business grows.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <Contact />
         </div>
