@@ -59,7 +59,8 @@ function AppContent() {
           <Route path="/services"  element={<ServicesPage />} />
           <Route path="/services/:id" element={<ServiceDetails />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/portfolio/:id" element={<ProjectDetails />} />
+          <Route path="/portfolio/:category" element={<PortfolioPage />} />
+          <Route path="/portfolio/project/:id" element={<ProjectDetails />} />
           <Route path="/hire"      element={<HirePage />} />
           <Route path="/contact"   element={<ContactPage />} />
           <Route path="/login"     element={<LoginPage />} />
